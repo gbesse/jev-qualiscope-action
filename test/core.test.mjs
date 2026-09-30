@@ -1,0 +1,33 @@
+// Objectif : vérifier la normalisation, la règle déterministe et la décision sémantique.
+import test from "node:test";
+import assert from "node:assert/strict";
+import { qualityCase, planCareQualityAction } from "../src/index.mjs";
+import { createFakeProvider } from "../src/jev.mjs";
+const edge = {
+  "id": "limite-1",
+  "text": "Cas synthétique traité par une règle déterministe avant toute analyse sémantique.",
+  "source": {
+    "url": "https://example.test/cas-limite",
+    "date": "2026-09-16"
+  },
+  "indicatorStatus": "not_applicable"
+};
+test("exige une source", () => assert.throws(() => qualityCase({ id: "x", text: "y" }), /source/));
+test("applique le cas limite sans appel Jev", async () => { const provider = createFakeProvider(() => { throw new Error("appel interdit"); }); assert.equal((await planCareQualityAction(edge, provider)).decision, "not_applicable"); assert.equal(provider.calls, 0); });
+test("classe un dossier sourcé", async () => { const provider = createFakeProvider(() => ({ model: "jev-1.13.0", answers: { decision: { type: "choice", choice: "planned_action", probabilities: {
+  "immediate_action": 0.05,
+  "planned_action": 0.85,
+  "monitor": 0.05,
+  "not_applicable": 0.05
+}, confidence: 0.85 } }, usage: { input_tokens: 10, output_tokens: 0 } })); const result = await planCareQualityAction({
+  "id": "exemple-1",
+  "text": "Indicateur dégradé sur deux campagnes avec plan correctif annoncé mais résultat récent non publié.",
+  "source": {
+    "url": "https://example.test/donnee-source",
+    "date": "2026-09-15"
+  },
+  "details": {
+    "territoire": "Commune Exemple",
+    "origine": "donnée synthétique"
+  }
+}, provider); assert.equal(result.decision, "planned_action"); assert.equal(result.review, false); });
