@@ -118,3 +118,12 @@ npm run demo
 La CI exécute ces vérifications sous Node.js 22 et 24.
 
 Projet indépendant, sans affiliation avec TypeSafe AI, data.gouv.fr ni l’administration française. Consultez la [documentation de l’API Jev](https://docs.typesafe.ai/api) et les [limites du modèle](https://docs.typesafe.ai/model-jaggedness/jev-1.13).
+
+
+## 2026-11-05 — FR / EN / ES
+
+FR : API hors ligne `compareIndicatorSeries(points)` : ordonne les millésimes et calcule des écarts seulement à établissement, indicateur et périmètre identiques. Changement de périmètre donne `delta:null`. Ce calcul descriptif ne conclut ni qualité clinique ni action médicale.
+
+EN: Offline `compareIndicatorSeries(points)` orders years and computes differences only for matching facility, indicator and scope. Changed scope yields `delta:null`. Descriptive calculation concludes neither clinical quality nor medical action.
+
+ES: API sin red `compareIndicatorSeries(points)` ordena años y calcula diferencias solo con mismo centro, indicador y ámbito. Cambio de ámbito da `delta:null`. Cálculo descriptivo sin conclusión clínica ni acción médica.

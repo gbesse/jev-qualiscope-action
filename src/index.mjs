@@ -37,3 +37,5 @@ export async function runCli(argv, io = console) {
   const record = qualityCase(JSON.parse(await readFile(argv[0], "utf8")));
   io.log(JSON.stringify({ dossier: record, prochaineÉtape: "Transmettez ce dossier à planCareQualityAction avec un fournisseur Jev configuré." }, null, 2));
 }
+
+export {compareIndicatorSeries} from './series.mjs';
