@@ -1,6 +1,6 @@
 {
   "name": "@gbesse/jev-qualiscope-action",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Transforme un signal Qualiscope en niveau d’action explicite soumis à revue humaine.",
   "type": "module",
   "license": "MIT",
