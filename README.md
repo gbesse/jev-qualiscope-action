@@ -127,3 +127,12 @@ FR : API hors ligne `compareIndicatorSeries(points)` : ordonne les millésimes e
 EN: Offline `compareIndicatorSeries(points)` orders years and computes differences only for matching facility, indicator and scope. Changed scope yields `delta:null`. Descriptive calculation concludes neither clinical quality nor medical action.
 
 ES: API sin red `compareIndicatorSeries(points)` ordena años y calcula diferencias solo con mismo centro, indicador y ámbito. Cambio de ámbito da `delta:null`. Cálculo descriptivo sin conclusión clínica ni acción médica.
+
+
+## 2026-11-12 — FR / EN / ES
+
+FR : Aligner les révisions d’indicateur sur les seules années communes sans imputation.
+
+EN: Align indicator revisions on matched years without imputation.
+
+ES: Alinear revisiones de indicadores solo en años comunes sin imputación.

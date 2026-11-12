@@ -39,3 +39,5 @@ export async function runCli(argv, io = console) {
 }
 
 export {compareIndicatorSeries} from './series.mjs';
+
+export * from './sprint-nov12.mjs';

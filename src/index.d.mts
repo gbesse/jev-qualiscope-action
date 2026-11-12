@@ -7,3 +7,5 @@ export function planCareQualityAction(input: any, provider: JevProvider): Promis
 export function runCli(argv: string[], io?: { log(value: string): void }): Promise<void>;
 
 export function compareIndicatorSeries(points:Array<{indicator:string;facility:string;scope:string;year:number;value:number}>):{comparable:boolean;firstYear:number;lastYear:number;delta:number|null;successiveDeltas:Array<{from:number;to:number;delta:number}>;clinicalConclusion:boolean};
+
+export function alignIndicatorSeries(left:any[],right:any[]):{matched:any[];leftOnlyYears:number[];rightOnlyYears:number[];missingValuesImputed:boolean;clinicalConclusion:boolean};
